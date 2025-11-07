@@ -21,11 +21,16 @@ app.add_middleware(
         "http://localhost:5173",  # Vite default port
         "http://localhost:3000",  # Just in case
         "http://127.0.0.1:5173",
+        "https://choose-your-own-adventure-frontend.vercel.app/",  # Your Vercel URL
+        "https://*.vercel.app",  # All Vercel preview deployments
     ],
+    
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+)   
+
+
 
 app.include_router(story.router, prefix=settings.API_PREFIX)
 app.include_router(job.router, prefix=settings.API_PREFIX)
