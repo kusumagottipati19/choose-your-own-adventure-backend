@@ -15,20 +15,27 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# Add CORS middleware - UPDATE THIS SECTION
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",  # Vite default port
-        "http://localhost:3000",  # Just in case
-        "http://127.0.0.1:5173",
-        "https://choose-your-own-adventure-frontend.vercel.app/",  # Your Vercel URL
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://choose-your-own-adventure-frontend.vercel.app",  # Your Vercel URL
         "https://*.vercel.app",  # All Vercel preview deployments
     ],
-    
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)   
+)
+
+# Your routes below...
+
 
 
 
